@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Grade Portal & Academic Transcript</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📜</text></svg>">
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="brand">
+      <div class="brand-icon">📜</div>
+      <div class="brand-text">
+        <h1>Student Grade & Transcript Portal</h1>
+        <p>Office of Academic Affairs • Fall 2026 Academic Term</p>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <div class="picker">
+        <label for="studentSelect">Active Student:</label>
+        <select id="studentSelect">
+          <!-- Populated by JS -->
+        </select>
+      </div>
+      <button class="btn btn-primary" onclick="printTranscript()">Print Official Transcript</button>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <!-- Student Banner Card -->
+    <div class="student-banner">
+      <div class="student-info">
+        <h2 id="studentName">Loading Student...</h2>
+        <div class="student-meta">
+          <span>ID: <strong id="studentIdDisplay">---</strong></span>
+          <span>Dept: <strong id="studentDept">---</strong></span>
+          <span>Major: <strong id="studentMajor">---</strong></span>
+          <span>Term: <strong>Fall Semester 2026</strong></span>
+        </div>
+      </div>
+      <div>
+        <span id="standingBadge" class="standing-badge">GOOD STANDING</span>
+      </div>
+    </div>
+
+    <!-- Academic KPI Stats -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-title">Semester GPA (4.0)</span>
+        <div class="stat-value" id="gpaDisplay" style="color:var(--primary);">0.00</div>
+        <div class="stat-desc">Credit-weighted index</div>
+      </div>
+
+      <div class="stat-card">
+        <span class="stat-title">Average Score (10.0)</span>
+        <div class="stat-value" id="score10Display" style="color:var(--purple);">0.00</div>
+        <div class="stat-desc">Composite 10-point scale</div>
+      </div>
+
+      <div class="stat-card">
+        <span class="stat-title">Credits Completed</span>
+        <div class="stat-value" id="creditsDisplay" style="color:var(--success);">0 / 0 cr</div>
+        <div class="stat-desc">Earned vs Attempted</div>
+      </div>
+
+      <div class="stat-card">
+        <span class="stat-title">Grading Policy</span>
+        <div class="stat-value" style="font-size:20px; padding-top:4px;">Dual Scale</div>
+        <div class="stat-desc">10.0 Scale ⇄ 4.0 Scale ⇄ Letter</div>
+      </div>
+    </div>
+
+    <!-- Grades Table -->
+    <div class="section-title">
+      <span>Semester Curriculum & Assessment Gradebook</span>
+    </div>
+
+    <div class="card-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Course Code</th>
+            <th>Course Name</th>
+            <th>Credits</th>
+            <th>Attendance (10%)</th>
+            <th>Midterm (20%)</th>
+            <th>Lab / Proj (20%)</th>
+            <th>Final Exam (50%)</th>
+            <th>Score (10)</th>
+            <th>Letter</th>
+            <th>GPA (4.0)</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody id="gradesTableBody">
+          <!-- Populated by JS -->
+        </tbody>
+      </table>
+    </div>
+
+  </main>
+
+  <script src="js/mockData.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
